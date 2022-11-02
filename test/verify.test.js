@@ -36,35 +36,36 @@ afterEach(async () => {
   await browser.close();
 });
 
-describe('the absolute-units div', () => {
-    it('should have an absolute margin value in pixels', async () => {
-      const variableDefinitionCount = await page.$eval('style', (style) => {
-        return style.innerHTML.match(/#absolute-units.*{[\s\S][^}]*margin:.*px;/g).length;
-      });
-      expect(variableDefinitionCount).toEqual(1);
+describe('the relative class', () => {
+  it('should have a relative position', async () => {
+    const position = await page.$eval('div[class="relative"]', (div) => {
+      let style = window.getComputedStyle(div);
+      return style.getPropertyValue('position');
     });
     
-    it('should have an absolute padding value in pixels', async () => {
-      const variableDefinitionCount = await page.$eval('style', (style) => {
-        return style.innerHTML.match(/#absolute-units.*{[\s\S][^}]*padding:.*px;[\s\S]*#relative-units/g).length;
-      });
-      expect(variableDefinitionCount).toEqual(1);
-    });
+    expect(position).toBe('relative');
+  });
 });
 
-describe('the relative-units div', () => {
-    it('should have margin values relative to the font-size of the element', async () => {
-      const variableDefinitionCount = await page.$eval('style', (style) => {
-        return style.innerHTML.match(/#relative-units.*{[\s\S][^}]*margin:.*em;/g).length;
-      });
-      expect(variableDefinitionCount).toEqual(1);
+describe('the fixed class', () => {
+  it('should have a fixed position', async () => {
+    const position = await page.$eval('div[class="fixed"]', (div) => {
+      let style = window.getComputedStyle(div);
+      return style.getPropertyValue('position');
     });
     
-    it('should have padding values relative to the font-size of the element', async () => {
-      const variableDefinitionCount = await page.$eval('style', (style) => {
-        return style.innerHTML.match(/#relative-units.*{[\s\S][^}]*padding:.*em;/g).length;
-      });
-      expect(variableDefinitionCount).toEqual(1);
+    expect(position).toBe('fixed');
+  });
+});
+
+describe('the absolute class', () => {
+  it('should have an absolute position', async () => {
+    const position = await page.$eval('div[class="absolute"]', (div) => {
+      let style = window.getComputedStyle(div);
+      return style.getPropertyValue('position');
     });
+      
+    expect(position).toBe('absolute');
+  });
 });
 

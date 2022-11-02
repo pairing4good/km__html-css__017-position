@@ -1,13 +1,12 @@
-# 016 Absolute And Relative Units
+# 017 Position
 
-[![016 Absolute And Relative Units](https://img.youtube.com/vi/DhfN-ZliGdU/0.jpg)](https://www.youtube.com/watch?v=DhfN-ZliGdU)
+[![017 Position](https://img.youtube.com/vi/GcYIhcridMM/0.jpg)](https://www.youtube.com/watch?v=GcYIhcridMM)
 
 The `index.html` file
-- should style `absolute-units` id to have absolute margin and padding values in pixels
-- should style `relative-units` id to have margin and padding values relative to the font-size of the element
+- should style `relative` class to have a relative position
+- should style `fixed` class to have a fixed position
+- should style `absolute` class to have an absolute position
 
 Resources:
-- https://www.w3schools.com/cssref/css_units.asp
+- https://www.w3schools.com/css/css_positioning.asp
 
-Building toward CSTA Standards:
-- Develop programs for multiple computing platforms. (3B-AP-19) https://www.csteachers.org/page/standards
